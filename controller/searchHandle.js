@@ -5,7 +5,11 @@ import dataModel from "../model/dataModel.js";
 
 
 
-export const handleSearch=async(req,res)=>{
+export const handleSearch=async(req,res,next)=>{
+
+
+
+    try{
 
 
     console.log(req.query.value)
@@ -42,6 +46,11 @@ export const handleSearch=async(req,res)=>{
     
 
   return res.status(HttpStatus.OK).json({data:result})
+
+
+}catch(error){
+    next(error)
+}
 
 
 
