@@ -1,5 +1,6 @@
 
 import jwt from "jsonwebtoken";
+import { HttpStatus } from "../httpStatus.js";
 
 
 export const accesToken=(userName,email,id)=>{
@@ -32,7 +33,7 @@ export const verifyAccessToken=(req,res,next)=>{
         
     
         if (!token) {
-          return res.status(401).json({ message: "Unauthorized" });
+          return res.status(HttpStatus.UNAUTHORIZED).json({ message: "Unauthorized" });
         }
     
         const secretOrPrivateKey= process.env.ACCESS_TOKEN_SECRET 
@@ -40,7 +41,7 @@ export const verifyAccessToken=(req,res,next)=>{
         jwt.verify(token, secretOrPrivateKey, (err, decoded) => {
           if (err) {
             console.log(err);
-            return res.status(401).json({ message: "Unauthorized" });
+            return res.status(HttpStatus.UNAUTHORIZED).json({ message: "Unauthorized" });
           }
     
           req.user = decoded;

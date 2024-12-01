@@ -2,6 +2,7 @@ import axios from "axios"
 import * as cheerio from 'cheerio';
 
 import pdf from "pdf-parse-debugging-disabled";
+
 import dataModel from "../model/dataModel.js";
 
 // Base URL of the website
@@ -9,6 +10,7 @@ const url = "http://www.comune.torino.it/ediliziaprivata/organizzazione/atti_org
 
 
 const a='http://www.comune.torino.it/ediliziaprivata/'
+
 async function parseData(urll){
 
     try {

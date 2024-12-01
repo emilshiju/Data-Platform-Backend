@@ -36,11 +36,7 @@ export const handleSearch=async(req,res,next)=>{
     console.log(result)
 
    
-    // if (result.length === 0) {
-        
-    //     result = await dataModel.find({ text: { $regex:regex } });  
-    // }
-
+   
 
 
     
